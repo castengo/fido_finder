@@ -9,7 +9,7 @@ defmodule PetFinder.Parser do
   @doc """
   Parses a list of pet data.
   """
-  def parse_pets(%{ "petfinder" => %{ "pets" => %{ "pet" => pets}}}) do
+  def parse_pets(%{ "petfinder" => %{ "pets" => %{ "pet" => pets }}}) do
     Enum.map(pets, &parse_pet/1)
   end
   def parse_pets(_), do: []

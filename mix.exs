@@ -9,7 +9,10 @@ defmodule FidoFinder.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
-      deps: deps()
+      deps: deps(),
+      # For docs
+      name: "Fido Finder",
+      source_url: "https://github.com/castengo/fido_finder"
     ]
   end
 
@@ -39,7 +42,8 @@ defmodule FidoFinder.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:httpoison, "~> 1.0"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:ex_doc, "~> 0.16", only: :dev, runtime: false}
     ]
   end
 end
