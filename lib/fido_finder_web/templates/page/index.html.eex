@@ -1,36 +1,35 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+<div class="text-center mt-3">
+  <h1>Adopt a pet in your area!</h1>
+  <%= form_for @conn, page_path(@conn, :index), [method: :get], fn f -> %>
+    <div class="form-group">
+      <%= text_input f, :search, class: "form-control col-2 offset-5" %>
+      <small class="form-text text-muted">Enter your zipcode</small>
+    </div>
+    <%= submit "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<div class="float-right">
+  
 </div>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
+<%= if @pets != [] do %>
+  <h2 class="text-center mt-5">These pets are ready for adoption 💜</h2>
+<% end %>
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
-  </div>
+<div class="row">
+  <%= for pet <- @pets do %>
+    <div class="col-6">
+      <div class="row m-5">
+        <div class="col-6">
+          <%= img_tag pet.photo_url, class: "img-fluid rounded" %>
+        </div>
+        <div class="col-6">
+          <p class="lead"><%= pet.name %></p>
+          <p><strong>Age: </strong><%= pet.age %></p>
+          <p><strong>Sex: </strong><%= pet.sex %></p>
+          <%= link "Email owner", to: "mailto:#{pet.contact_email}", class: "btn btn-info" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
