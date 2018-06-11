@@ -2,9 +2,10 @@ defmodule PetFinder.Fetcher do
   @moduledoc """
   Pet finder fetcher.
   """
+  # TODO put values here
   defp api_url, do: Application.get_env :fido_finder, :api_url
   defp api_key, do: Application.get_env :fido_finder, :api_key
-  defp api_secret, do: Application.get_env :fido_finder, :api_secret
+  # defp api_secret, do: Application.get_env :fido_finder, :api_secret
 
   @doc """
   Finds adoptable pets by zipcode using the pet.find endpoint.

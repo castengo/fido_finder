@@ -6,8 +6,9 @@ defmodule PetFinder.Parser do
 
   @photo_not_available "https://static1.squarespace.com/static/5a31780cace8643074b025ae/t/5a957a1a0d9297d5c09756b4/1519745972162/image-not-available.jpg"
 
+  # TODO: write doc tests and generate docs
   @doc """
-  Parses a list of pet data.
+  Parses data for a list of pets.
   """
   def parse_pets(%{ "petfinder" => %{ "pets" => %{ "pet" => pets }}}) do
     Enum.map(pets, &parse_pet/1)
@@ -47,7 +48,9 @@ defmodule PetFinder.Parser do
   defp do_get_photo(%{"$t" => url}), do: url
   defp do_get_photo(_), do: @photo_not_available
 
-  defp get_sex("F"), do: "female"
-  defp get_sex("M"), do: "male"
+  defp get_sex("F"), do: "Female"
+  defp get_sex("M"), do: "Male"
+
+  ## TODO: examples for case and cond statements for get_sex
 
 end

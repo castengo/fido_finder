@@ -10,6 +10,10 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
+#TODO: write how to start up application.
+put app url and key in dev secrets
+cd assets && npm install
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/
