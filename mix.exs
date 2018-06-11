@@ -43,7 +43,8 @@ defmodule FidoFinder.Mixfile do
       {:cowboy, "~> 1.0"},
       {:httpoison, "~> 1.0"},
       {:poison, "~> 3.1"},
-      {:ex_doc, "~> 0.16", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.16", only: :dev, runtime: false},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
 end

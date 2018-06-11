@@ -116,7 +116,7 @@
     <a href="#parse_pets/1">parse_pets(arg1)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Parses a list of pet data</p>
+    <div class="summary-synopsis"><p>Parses data for a list of pets</p>
 </div>
   
 </div>
@@ -150,7 +150,7 @@
     </a>
     <span class="signature">parse_pet(map)</span>
     
-      <a href="https://github.com/castengo/fido_finder/blob/master/lib/fido_finder/pet_finder/parser.ex#L20" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/castengo/fido_finder/blob/master/lib/fido_finder/pet_finder/parser.ex#L33" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -160,6 +160,20 @@
   </div>
   <section class="docstring">
     <p>Parses data for a single pet.</p>
+<h2 id="parse_pet/1-example" class="section-heading">
+  <a href="#parse_pet/1-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<pre><code class="iex elixir">iex&gt; PetFinder.Parser.parse_pet(%{&quot;age&quot; =&gt; %{&quot;$t&quot; =&gt; &quot;Adult&quot;}, &quot;contact&quot; =&gt; %{&quot;email&quot; =&gt; %{&quot;$t&quot; =&gt; &quot;catalina@test.com&quot;}}, &quot;media&quot; =&gt; %{}, &quot;name&quot; =&gt; %{&quot;$t&quot; =&gt; &quot;Puppers&quot;}, &quot;sex&quot; =&gt; %{&quot;$t&quot; =&gt; &quot;M&quot;}})
+  %PetFinder.Pet{
+    age: &quot;Adult&quot;,
+    contact_email: &quot;catalina@test.com&quot;,
+    name: &quot;Puppers&quot;,
+    photo_url: &quot;https://static1.squarespace.com/static/5a31780cace8643074b025ae/t/5a957a1a0d9297d5c09756b4/1519745972162/image-not-available.jpg&quot;,
+    sex: &quot;Male&quot;
+  }
+</code></pre>
 
   </section>
 </div>
@@ -182,7 +196,7 @@
     
   </div>
   <section class="docstring">
-    <p>Parses a list of pet data.</p>
+    <p>Parses data for a list of pets.</p>
 
   </section>
 </div>

@@ -1,14 +1,14 @@
 # FidoFinder
 Find adoptable pets in your area with this application!
 
-## Get API Access
+## Get API access
 
 Register for the [PetFinder API](https://www.petfinder.com/user/register/?next=https%3A%2F%2Fwww.petfinder.com%2Fdevelopers%2Fapi-key)
 to obtain an `API_KEY` needed to make requests.
 
 ## Configure your application
 
-Create a file in the `config` directory called `dev.secret.exs`. Enter your
+Create a file in the `config` directory called `dev.secret.exs`. Enter the
 `api_key` you obtained in the step above in your file.
 
 ```
