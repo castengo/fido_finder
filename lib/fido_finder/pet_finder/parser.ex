@@ -9,7 +9,7 @@ defmodule PetFinder.Parser do
   @doc """
   Parses data for a list of pets.
   """
-  def parse_pets(%{ "petfinder" => %{ "pets" => %{ "pet" => pets }}}) do
+  def parse_pets(%{"petfinder" => %{"pets" => %{ "pet" => pets}}}) do
     Enum.map(pets, &parse_pet/1)
   end
   def parse_pets(_), do: []
@@ -30,7 +30,7 @@ defmodule PetFinder.Parser do
 
   ```
   """
-  @spec 
+  @spec parse_pet(map) :: Pet.t
   def parse_pet(
     %{
       "age" => %{"$t" => age},
@@ -51,6 +51,16 @@ defmodule PetFinder.Parser do
     }
   end
 
+  # def parse_pet(data) do
+  #   %Pet{
+  #     age: data["age"]["$t"],
+  #     contact_email: data["contact"]["email"]["$t"],
+  #     name: data["name"]["$t"],
+  #     photo_url: get_photo(data["media"]),
+  #     sex: get_sex(data["sex"])
+  #   }
+  # end
+
   defp get_photo(media) when map_size(media) == 0, do: @photo_not_available
   defp get_photo(%{"photos" => %{"photo" => photo_list}}) do
     photo_list
@@ -63,7 +73,26 @@ defmodule PetFinder.Parser do
 
   defp get_sex("F"), do: "Female"
   defp get_sex("M"), do: "Male"
+  defp get_sex(_), do: "Unknown"
 
-  ## TODO: examples for case and cond statements for get_sex
+  # defp get_sex(sex) do
+  #   case sex do
+  #     "F" -> "Female"
+  #     "M" -> "Male"
+  #     _ -> "Unknown"
+  #   end
+  # end
+  #
+  # defp get_sex(sex) do
+  #   cond do
+  #     sex == "F" -> "Female"
+  #     sex == "M" -> "Male"
+  #     true -> "Unknown"
+  #   end
+  # end
+  #
+  # defp get_sex(sex) when sex == "F", do: "Female"
+  # defp get_sex(sex) when sex == "M", do: "Male"
+  # defp get_sex(_), do: "Unknown"
 
 end
